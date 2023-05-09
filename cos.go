@@ -38,8 +38,12 @@ func main() {
 	resume := &upyun.MemoryRecorder{}
 	// 若设置为 nil，则为正常的分片上传
 	yun.SetRecorder(resume)
+	separator := "/"
 	for _, path := range fileList {
-		remotePath := remoteBasePath + "/" + path
+		if strings.HasPrefix(path, "/") {
+			separator = ""
+		}
+		remotePath := remoteBasePath + separator + path
 		err = yun.Put(&upyun.PutObjectConfig{
 			Path:      remotePath,
 			LocalPath: path,
