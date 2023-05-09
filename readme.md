@@ -19,7 +19,7 @@
       up_password:
         from_secret: up_password
       up_bucket:
-        from_bucket: up_bucket
+        from_secret: up_bucket
       local_base_path: wechatbot
       remote_base_path: gitea/devops
 ````
